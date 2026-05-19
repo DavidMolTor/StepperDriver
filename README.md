@@ -6,7 +6,7 @@ A simple stepper driver module using a Seeed Studio Xiao board and TMC2208 stepp
 
 This module is designed to be used as a stepper controller for a testbench platform.
 
-<p align="center"><img src="/Build/PicoFX.png" alt="PICO FX"></p>
+<p align="center"><img src="/Build/StepperDriver.png" alt="STEPPER DRIVER"></p>
 
 ## Features
 
