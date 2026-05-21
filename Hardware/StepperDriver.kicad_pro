@@ -40,8 +40,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 2.0,
-          "width": 2.75
+          "height": 1.7,
+          "width": 1.7
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -61,10 +61,10 @@
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
           "min_clearance": 0.3,
-          "min_island_area": 10.0,
+          "min_island_area": 0.0013161349,
           "min_thickness": 0.2,
           "pad_connection": 2,
-          "remove_islands": 0,
+          "remove_islands": 1,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.6
         }
@@ -674,15 +674,15 @@
       },
       {
         "netclass": "DEBUG",
-        "pattern": "/SWDIO"
+        "pattern": "/TMS"
       },
       {
         "netclass": "DEBUG",
-        "pattern": "/SWCLK"
+        "pattern": "/TCK"
       },
       {
         "netclass": "DEBUG",
-        "pattern": "/UART*"
+        "pattern": "/TD*"
       },
       {
         "netclass": "I2C",
@@ -834,7 +834,7 @@
         "uuid": "f5ca4343-daa3-43f5-9432-f92f223fbf4e"
       }
     ],
-    "used_designators": "L1,#PWR1-45,D1-3,#FLG1-6,R1-14,J1-4,C1-20,H1-6,SW1-3,U1-3",
+    "used_designators": "D4,#PWR46-47,#FLG5,R15",
     "variants": []
   },
   "sheets": [
