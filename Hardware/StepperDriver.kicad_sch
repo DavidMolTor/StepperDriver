@@ -7193,7 +7193,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "04731d84-812b-4093-bcd7-0f39d9aa016e")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR017"
 			(at 156.21 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -7253,7 +7253,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR016")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -7447,7 +7447,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0db8ab21-9945-4835-92eb-34150e7169d6")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR025"
 			(at 281.94 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -7507,7 +7507,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR023")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -7525,7 +7525,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "11523ffd-21f3-414f-a8b3-8521bb04170d")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR022"
 			(at 299.72 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -7585,7 +7585,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR020")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -7603,7 +7603,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "139fb29f-0bd7-42fe-8b7f-5473e29759e7")
-		(property "Reference" "R15"
+		(property "Reference" "R3"
 			(at 212.09 104.1399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7689,7 +7689,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R15")
+					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -7820,7 +7820,7 @@
 				)
 			)
 		)
-		(property "Value" "SW_C"
+		(property "Value" "SPST_TS"
 			(at 304.8 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7986,7 +7986,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "155ab3d5-7257-4fb1-a19e-837460fd5d59")
@@ -8358,7 +8358,7 @@
 				)
 			)
 		)
-		(property "Value" "SW_P"
+		(property "Value" "SPST_TS"
 			(at 361.95 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8451,7 +8451,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2124366b-f912-4291-8aaf-70fc7b4c4e3e")
-		(property "Reference" "#PWR032"
+		(property "Reference" "#PWR034"
 			(at 80.01 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -8511,7 +8511,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR032")
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -8809,7 +8809,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "26004fd0-6110-4d3e-8ef7-571404901209")
-		(property "Reference" "R14"
+		(property "Reference" "R15"
 			(at 336.55 200.66 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8893,7 +8893,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R14")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -9124,7 +9124,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2b855dc5-16dc-456a-b1b2-be776e00a4ee")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR026"
 			(at 232.41 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -9184,7 +9184,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR024")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -9202,7 +9202,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "30b729b1-b3c0-47db-b031-9815cac40671")
-		(property "Reference" "R5"
+		(property "Reference" "R6"
 			(at 297.18 126.9999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9288,7 +9288,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R5")
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -9411,7 +9411,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "35c33bd1-880e-4685-9c56-203b97e935af")
-		(property "Reference" "#PWR030"
+		(property "Reference" "#PWR032"
 			(at 64.77 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -9471,7 +9471,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR030")
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -9489,7 +9489,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "35dd2214-b13c-4127-8ce4-15e71f31bf65")
-		(property "Reference" "R3"
+		(property "Reference" "R4"
 			(at 226.06 115.57 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9573,7 +9573,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R3")
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -9693,7 +9693,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3cc21343-8a1a-478d-b5ac-a66b3391fd17")
-		(property "Reference" "R4"
+		(property "Reference" "R5"
 			(at 284.48 126.9999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9779,7 +9779,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R4")
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -9807,7 +9807,7 @@
 				)
 			)
 		)
-		(property "Value" "SW_M"
+		(property "Value" "SPST_TS"
 			(at 247.65 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11006,7 +11006,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5eec7a5d-be9d-4f74-8302-ba8b4bc55338")
-		(property "Reference" "#PWR029"
+		(property "Reference" "#PWR031"
 			(at 129.54 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -11066,7 +11066,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR029")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -11085,7 +11085,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "674cde1c-26b7-4695-b429-6e8c4cf7ee8a")
-		(property "Reference" "#PWR033"
+		(property "Reference" "#PWR035"
 			(at 64.77 179.07 0)
 			(hide yes)
 			(show_name no)
@@ -11145,7 +11145,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR033")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -11163,7 +11163,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6777a415-b7e3-4190-8e68-4ec73fdf6ea8")
-		(property "Reference" "#PWR025"
+		(property "Reference" "#PWR027"
 			(at 257.81 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -11223,7 +11223,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR025")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -11241,7 +11241,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "67d45d1e-2956-4c78-9f0c-3098bede6ec9")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR015"
 			(at 101.6 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -11301,7 +11301,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR014")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -11525,7 +11525,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "713ff09e-44ec-4182-9f1a-ba6ee826fbc7")
-		(property "Reference" "D3"
+		(property "Reference" "D4"
 			(at 138.43 70.8024 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11611,7 +11611,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "D3")
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -11732,7 +11732,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "71cdabe5-f0d4-40b6-b084-61923fe355c6")
-		(property "Reference" "#PWR045"
+		(property "Reference" "#PWR047"
 			(at 72.39 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -11792,7 +11792,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR045")
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -11914,7 +11914,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "75a7cdec-e011-4f26-ba18-10ea4fc6de54")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR021"
 			(at 292.1 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -11974,7 +11974,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR019")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -11993,7 +11993,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "75fe7aaf-ef55-4bc7-b25e-16224d1949f2")
-		(property "Reference" "#PWR036"
+		(property "Reference" "#PWR038"
 			(at 297.18 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -12053,7 +12053,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR036")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -12071,7 +12071,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "78235a98-c086-4d89-8fe9-608cec14b0f9")
-		(property "Reference" "R8"
+		(property "Reference" "R9"
 			(at 160.02 175.26 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12155,7 +12155,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R8")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -12172,7 +12172,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "78fc8105-2dd7-43d6-a459-f57a38d9b90c")
-		(property "Reference" "R13"
+		(property "Reference" "R14"
 			(at 279.4 200.66 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12256,7 +12256,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R13")
+					(reference "R14")
 					(unit 1)
 				)
 			)
@@ -12458,7 +12458,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7ca48f88-ecd3-4dde-baf4-e0aac2769bf4")
-		(property "Reference" "#PWR039"
+		(property "Reference" "#PWR041"
 			(at 255.27 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -12518,7 +12518,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR039")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -12537,7 +12537,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7cad94aa-b140-4239-8d47-8e33925acc25")
-		(property "Reference" "#PWR037"
+		(property "Reference" "#PWR039"
 			(at 354.33 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -12597,7 +12597,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR037")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -12887,7 +12887,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "815592c3-3d3d-4068-a1ed-f491d2c5b7e8")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR023"
 			(at 307.34 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -12947,7 +12947,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR021")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -12965,7 +12965,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "82e53387-7bce-401e-a309-3a700e644abc")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR020"
 			(at 224.79 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -13025,7 +13025,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR018")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -13335,7 +13335,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8af34d67-d0a6-44b3-8754-d69d5ff90bc5")
-		(property "Reference" "#PWR028"
+		(property "Reference" "#PWR030"
 			(at 124.46 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -13395,7 +13395,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR028")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -13413,7 +13413,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8ce643bc-a6b5-487b-8c89-8c9f1c902218")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR018"
 			(at 166.37 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -13473,7 +13473,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR017")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -13492,7 +13492,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "915ac596-8f08-4c41-824a-3b47ccfe3516")
-		(property "Reference" "#PWR043"
+		(property "Reference" "#PWR045"
 			(at 369.57 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -13552,7 +13552,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR043")
+					(reference "#PWR045")
 					(unit 1)
 				)
 			)
@@ -13569,7 +13569,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "964ad20b-b94f-4ec2-b4e5-ecf89ec11dab")
-		(property "Reference" "R6"
+		(property "Reference" "R7"
 			(at 73.914 154.94 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13655,7 +13655,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R6")
+					(reference "R7")
 					(unit 1)
 				)
 			)
@@ -14145,7 +14145,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a2f15112-8067-4ab6-8f27-85cc1607d54e")
-		(property "Reference" "#PWR041"
+		(property "Reference" "#PWR043"
 			(at 312.42 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -14205,7 +14205,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR041")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -14327,7 +14327,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a6103632-c8b4-44be-84a8-1e3278ac376d")
-		(property "Reference" "R9"
+		(property "Reference" "R10"
 			(at 237.49 189.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14413,7 +14413,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R9")
+					(reference "R10")
 					(unit 1)
 				)
 			)
@@ -14509,7 +14509,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b51d13b1-17ab-4f5b-850c-cf049ce2199b")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR016"
 			(at 146.05 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -14569,7 +14569,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR015")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -14587,7 +14587,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b66b5831-e9f9-439c-86ad-0abf08bd3201")
-		(property "Reference" "R11"
+		(property "Reference" "R12"
 			(at 351.79 189.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14673,7 +14673,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R11")
+					(reference "R12")
 					(unit 1)
 				)
 			)
@@ -14691,7 +14691,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b881ec8c-ba13-4e23-beb8-f7f4f70a2955")
-		(property "Reference" "#PWR044"
+		(property "Reference" "#PWR046"
 			(at 127 217.17 0)
 			(hide yes)
 			(show_name no)
@@ -14751,7 +14751,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR044")
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -14973,7 +14973,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b9d98485-648e-48f8-bbfd-73a27bfc918c")
-		(property "Reference" "#PWR046"
+		(property "Reference" "#PWR019"
 			(at 214.63 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -15033,7 +15033,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR046")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -15052,7 +15052,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "babb5705-a280-4b7d-9676-e92f2f894610")
-		(property "Reference" "#PWR038"
+		(property "Reference" "#PWR040"
 			(at 215.9 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -15112,7 +15112,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR038")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -15309,7 +15309,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c16f88a7-4152-441b-91d6-f55efb7d15df")
@@ -15412,7 +15412,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ca7dac75-cba8-41ef-b51c-8bce2fba1b71")
-		(property "Reference" "#PWR042"
+		(property "Reference" "#PWR044"
 			(at 330.2 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -15472,7 +15472,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR042")
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)
@@ -15486,7 +15486,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ce1f3e7b-357f-4ea3-8670-0d699e307cb6")
@@ -15666,7 +15666,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cecc65e7-56b0-46ee-8b3c-aee9df3a01db")
-		(property "Reference" "#PWR026"
+		(property "Reference" "#PWR028"
 			(at 281.94 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -15726,7 +15726,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR026")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -15744,7 +15744,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cf7de000-ba86-49e8-92c5-463ed3207c68")
-		(property "Reference" "#PWR027"
+		(property "Reference" "#PWR029"
 			(at 294.64 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -15804,7 +15804,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR027")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -15822,7 +15822,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d0249852-cd78-4c81-910f-28155af5d45b")
-		(property "Reference" "R10"
+		(property "Reference" "R11"
 			(at 294.64 189.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15908,7 +15908,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R10")
+					(reference "R11")
 					(unit 1)
 				)
 			)
@@ -15926,7 +15926,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d16e8a61-cfbb-4dc1-a493-33a0364fba3e")
-		(property "Reference" "D4"
+		(property "Reference" "D3"
 			(at 60.96 71.1199 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16012,7 +16012,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "D4")
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -16109,7 +16109,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d77e7df2-b113-4f10-80c2-efe7a5f7e269")
-		(property "Reference" "#PWR031"
+		(property "Reference" "#PWR033"
 			(at 72.39 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -16169,7 +16169,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR031")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -16292,7 +16292,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dbc98012-f0bc-417b-a584-7c87bf52e359")
-		(property "Reference" "#PWR047"
+		(property "Reference" "#PWR014"
 			(at 63.5 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -16352,7 +16352,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR047")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -16474,7 +16474,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "df2b5d81-b795-4cdb-a03f-f0053213b02e")
-		(property "Reference" "#PWR035"
+		(property "Reference" "#PWR037"
 			(at 240.03 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -16534,7 +16534,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR035")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -16652,7 +16652,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e2afedb2-fc68-4483-a372-3c83d0a75866")
-		(property "Reference" "R12"
+		(property "Reference" "R13"
 			(at 222.25 200.66 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16736,7 +16736,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R12")
+					(reference "R13")
 					(unit 1)
 				)
 			)
@@ -17057,7 +17057,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f1f24191-f919-4d75-90be-58005667543c")
-		(property "Reference" "R7"
+		(property "Reference" "R8"
 			(at 81.534 154.94 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17143,7 +17143,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "R7")
+					(reference "R8")
 					(unit 1)
 				)
 			)
@@ -17289,7 +17289,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f3b69931-b97e-4f4d-a432-ebeed54f7774")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR024"
 			(at 314.96 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -17349,7 +17349,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR022")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -17367,7 +17367,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f622e9c6-b75b-423b-b64f-5ad6e619e789")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR036"
 			(at 72.39 179.07 0)
 			(hide yes)
 			(show_name no)
@@ -17427,7 +17427,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR034")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -17446,7 +17446,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fa7eb72b-b21a-42d0-aaa2-e817bbabb5f0")
-		(property "Reference" "#PWR040"
+		(property "Reference" "#PWR042"
 			(at 273.05 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -17506,7 +17506,7 @@
 		(instances
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "#PWR040")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
