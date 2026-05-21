@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.8,
-          "height": 1.27,
-          "width": 2.54
+          "drill": 0.0,
+          "height": 2.0,
+          "width": 2.75
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -52,21 +52,21 @@
         "zones": {
           "border_display_style": 2,
           "border_hatch_pitch": 0.5,
-          "corner_radius": 0.0,
-          "corner_smoothing": 0,
+          "corner_radius": 0.3,
+          "corner_smoothing": 2,
           "fill_mode": 0,
           "hatch_gap": 1.5,
           "hatch_orientation": 0.0,
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.3,
           "min_island_area": 10.0,
-          "min_thickness": 0.25,
-          "pad_connection": 1,
+          "min_thickness": 0.2,
+          "pad_connection": 2,
           "remove_islands": 0,
           "thermal_relief_gap": 0.5,
-          "thermal_relief_spoke_width": 0.5
+          "thermal_relief_spoke_width": 0.6
         }
       },
       "diff_pair_dimensions": [
@@ -217,6 +217,7 @@
       "track_widths": [
         0.0,
         0.2,
+        0.25,
         0.3,
         0.5,
         0.6,
@@ -253,6 +254,10 @@
         {
           "diameter": 0.0,
           "drill": 0.0
+        },
+        {
+          "diameter": 0.5,
+          "drill": 0.2
         },
         {
           "diameter": 0.6,
@@ -570,6 +575,7 @@
         "pcb_color": "rgb(194, 0, 0)",
         "priority": 0,
         "schematic_color": "rgb(194, 0, 0)",
+        "track_width": 0.6,
         "tuning_profile": ""
       },
       {
@@ -577,6 +583,7 @@
         "pcb_color": "rgb(132, 132, 132)",
         "priority": 2,
         "schematic_color": "rgb(132, 132, 132)",
+        "track_width": 0.6,
         "tuning_profile": ""
       },
       {
@@ -584,6 +591,7 @@
         "pcb_color": "rgb(221, 133, 0)",
         "priority": 1,
         "schematic_color": "rgb(221, 133, 0)",
+        "track_width": 0.6,
         "tuning_profile": ""
       },
       {
@@ -674,14 +682,6 @@
       },
       {
         "netclass": "DEBUG",
-        "pattern": "/DIO"
-      },
-      {
-        "netclass": "DEBUG",
-        "pattern": "/CLK"
-      },
-      {
-        "netclass": "DEBUG",
         "pattern": "/UART*"
       },
       {
@@ -695,6 +695,14 @@
       {
         "netclass": "PWR",
         "pattern": "/BOOT"
+      },
+      {
+        "netclass": "GPIO",
+        "pattern": "/TX"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "/5V_RAW"
       }
     ]
   },
@@ -712,7 +720,7 @@
     "annotate_start_num": 0,
     "annotation": {
       "method": 0,
-      "sort_order": 0
+      "sort_order": 1
     },
     "bom_export_filename": "${PROJECTNAME}.csv",
     "bom_fmt_presets": [],
@@ -826,7 +834,7 @@
         "uuid": "f5ca4343-daa3-43f5-9432-f92f223fbf4e"
       }
     ],
-    "used_designators": "R1-16,#FLG1-5,J1-5,D1-2,#PWR1-50,C1-21,SW1-5,U1-4,L1",
+    "used_designators": "L1,#PWR1-45,D1-3,#FLG1-6,R1-14,J1-4,C1-20,H1-6,SW1-3,U1-3",
     "variants": []
   },
   "sheets": [
