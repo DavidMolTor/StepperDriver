@@ -10884,7 +10884,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.4"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.8"
 			(at 286.7152 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -10917,7 +10917,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part" "C44606723"
+		(property "JLCPCB Part" "C5246552"
 			(at 285.75 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -10928,7 +10928,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "SM476M050E0800"
+		(property "Manufacturer Part" "HV1V476M0605PZ"
 			(at 285.75 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -12833,7 +12833,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.4"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.8"
 			(at 298.1452 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -12866,7 +12866,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part" "C44606723"
+		(property "JLCPCB Part" "C5246552"
 			(at 297.18 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -12877,7 +12877,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "SM476M050E0800"
+		(property "Manufacturer Part" "HV1V476M0605PZ"
 			(at 297.18 62.23 0)
 			(hide yes)
 			(show_name no)
