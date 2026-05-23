@@ -7534,7 +7534,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 354.33 130.81 0)
+		(at 354.33 124.46 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7545,7 +7545,7 @@
 		(fields_autoplaced yes)
 		(uuid "0bc21ac8-f904-4c68-873e-6eaa85465133")
 		(property "Reference" "H5"
-			(at 356.87 129.5399 0)
+			(at 356.87 123.1899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7556,7 +7556,7 @@
 			)
 		)
 		(property "Value" "TOOL"
-			(at 356.87 132.0799 0)
+			(at 356.87 125.7299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7567,7 +7567,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:ToolingHole_1.152mm"
-			(at 354.33 130.81 0)
+			(at 354.33 124.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7578,7 +7578,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 354.33 130.81 0)
+			(at 354.33 124.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7589,7 +7589,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 354.33 130.81 0)
+			(at 354.33 124.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7600,7 +7600,7 @@
 			)
 		)
 		(property "JLCPCB Part" "-"
-			(at 354.33 130.81 0)
+			(at 354.33 124.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7611,7 +7611,7 @@
 			)
 		)
 		(property "Manufacturer Part" "-"
-			(at 354.33 130.81 0)
+			(at 354.33 124.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10552,7 +10552,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 354.33 105.41 0)
+		(at 354.33 107.95 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10563,17 +10563,6 @@
 		(fields_autoplaced yes)
 		(uuid "50a6e031-0f2b-4f7e-bc31-afeb5589c484")
 		(property "Reference" "H3"
-			(at 356.87 104.1399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TOOL"
 			(at 356.87 106.6799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10584,8 +10573,19 @@
 				(justify left)
 			)
 		)
+		(property "Value" "TOOL"
+			(at 356.87 109.2199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(property "Footprint" "MountingHole:ToolingHole_1.152mm"
-			(at 354.33 105.41 0)
+			(at 354.33 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10596,7 +10596,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 354.33 105.41 0)
+			(at 354.33 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10607,7 +10607,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 354.33 105.41 0)
+			(at 354.33 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10618,7 +10618,7 @@
 			)
 		)
 		(property "JLCPCB Part" "-"
-			(at 354.33 105.41 0)
+			(at 354.33 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10629,7 +10629,7 @@
 			)
 		)
 		(property "Manufacturer Part" "-"
-			(at 354.33 105.41 0)
+			(at 354.33 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10643,104 +10643,6 @@
 			(project "StepperDriver"
 				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
 					(reference "H3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 354.33 118.11 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5165e597-d3b0-4b90-8e7a-cbd4e9d1c78b")
-		(property "Reference" "H4"
-			(at 356.87 116.8399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TOOL"
-			(at 356.87 119.3799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:ToolingHole_1.152mm"
-			(at 354.33 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 354.33 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 354.33 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part" "-"
-			(at 354.33 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer Part" "-"
-			(at 354.33 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(instances
-			(project "StepperDriver"
-				(path "/f5ca4343-daa3-43f5-9432-f92f223fbf4e"
-					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -12539,7 +12441,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "0R"
 			(at 154.94 177.292 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12582,7 +12484,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part" "C21190"
+		(property "JLCPCB Part" "C21189"
 			(at 154.94 172.72 90)
 			(hide yes)
 			(show_name no)
@@ -12593,7 +12495,7 @@
 				)
 			)
 		)
-		(property "Manufacturer Part" "0603WAF1001T5E"
+		(property "Manufacturer Part" "0603WAF0000T5E"
 			(at 154.94 172.72 90)
 			(hide yes)
 			(show_name no)
@@ -15756,7 +15658,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:Fiducial")
-		(at 368.3 137.16 0)
+		(at 368.3 140.97 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15767,7 +15669,7 @@
 		(fields_autoplaced yes)
 		(uuid "c16f88a7-4152-441b-91d6-f55efb7d15df")
 		(property "Reference" "FID3"
-			(at 370.84 135.8899 0)
+			(at 370.84 139.6999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15778,7 +15680,7 @@
 			)
 		)
 		(property "Value" "FIDUCIAL"
-			(at 370.84 138.4299 0)
+			(at 370.84 142.2399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15789,7 +15691,7 @@
 			)
 		)
 		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
-			(at 368.3 137.16 0)
+			(at 368.3 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15800,7 +15702,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 368.3 137.16 0)
+			(at 368.3 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15811,7 +15713,7 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
-			(at 368.3 137.16 0)
+			(at 368.3 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15822,7 +15724,7 @@
 			)
 		)
 		(property "JLCPCB Part" "-"
-			(at 368.3 137.16 0)
+			(at 368.3 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15833,7 +15735,7 @@
 			)
 		)
 		(property "Manufacturer Part" "-"
-			(at 368.3 137.16 0)
+			(at 368.3 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15933,7 +15835,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:Fiducial")
-		(at 368.3 111.76 0)
+		(at 368.3 107.95 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15944,7 +15846,7 @@
 		(fields_autoplaced yes)
 		(uuid "ce1f3e7b-357f-4ea3-8670-0d699e307cb6")
 		(property "Reference" "FID1"
-			(at 370.84 110.4899 0)
+			(at 370.84 106.6799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15955,7 +15857,7 @@
 			)
 		)
 		(property "Value" "FIDUCIAL"
-			(at 370.84 113.0299 0)
+			(at 370.84 109.2199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15966,7 +15868,7 @@
 			)
 		)
 		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
-			(at 368.3 111.76 0)
+			(at 368.3 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15977,7 +15879,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 368.3 111.76 0)
+			(at 368.3 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15988,7 +15890,7 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
-			(at 368.3 111.76 0)
+			(at 368.3 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15999,7 +15901,7 @@
 			)
 		)
 		(property "JLCPCB Part" "-"
-			(at 368.3 111.76 0)
+			(at 368.3 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16010,7 +15912,7 @@
 			)
 		)
 		(property "Manufacturer Part" "-"
-			(at 368.3 111.76 0)
+			(at 368.3 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17492,7 +17394,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 354.33 143.51 0)
+		(at 354.33 140.97 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17503,7 +17405,7 @@
 		(fields_autoplaced yes)
 		(uuid "e54ef1eb-9031-426a-9265-2b92fe7b015f")
 		(property "Reference" "H6"
-			(at 356.87 142.2399 0)
+			(at 356.87 139.6999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17514,7 +17416,7 @@
 			)
 		)
 		(property "Value" "TOOL"
-			(at 356.87 144.7799 0)
+			(at 356.87 142.2399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17525,7 +17427,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:ToolingHole_1.152mm"
-			(at 354.33 143.51 0)
+			(at 354.33 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17536,7 +17438,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 354.33 143.51 0)
+			(at 354.33 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17547,7 +17449,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 354.33 143.51 0)
+			(at 354.33 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17558,7 +17460,7 @@
 			)
 		)
 		(property "JLCPCB Part" "-"
-			(at 354.33 143.51 0)
+			(at 354.33 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17569,7 +17471,7 @@
 			)
 		)
 		(property "Manufacturer Part" "-"
-			(at 354.33 143.51 0)
+			(at 354.33 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
