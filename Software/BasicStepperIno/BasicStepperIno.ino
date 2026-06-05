@@ -28,7 +28,7 @@ const float TWO_POW_24 = 16777216.0;
 #define MAX_USTEPS 8
 
 static float motor_speed = 1.0f;
-static uint8_t motor_usteps = 2;
+static uint8_t motor_usteps = 1;
 
 static void moveAtVelocityHz(float speedHz, uint8_t microstepPower) {
   int microsteps = 1 << microstepPower;
@@ -98,7 +98,7 @@ void setup() {
   delay(100);
 
   if (stepper_driver.isSetupAndCommunicating()) {
-    stepper_driver.setMicrostepsPerStep(motor_usteps);
+    stepper_driver.setMicrostepsPerStepPowerOfTwo(motor_usteps);
     stepper_driver.setRunCurrent(RUN_CURRENT_PERCENT);
     stepper_driver.enableCoolStep();
     stepper_driver.enable();
