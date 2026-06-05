@@ -1,0 +1,96 @@
+menu "Project Configuration"
+
+    orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+
+    config USER_LED_GPIO
+        int "User LED GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 15
+        help
+            GPIO number (IOxx) to set the user LED status.
+
+    config TMC2209_VREF_GPIO
+        int "TMC2209 VREF GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 0
+        help
+            GPIO number (IOxx) to set the TMC2209 VREF PWM-generated voltage.
+
+    config TMC2209_STEP_GPIO
+        int "TMC2209 STEP GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 1
+        help
+            GPIO number (IOxx) to set the TMC2209 STEP signal.
+
+    config TMC2209_DIR_GPIO
+        int "TMC2209 DIR GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 2
+        help
+            GPIO number (IOxx) to set the TMC2209 DIR signal.
+
+    config TMC2209_EN_GPIO
+        int "TMC2209 EN GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 21
+        help
+            GPIO number (IOxx) to set the TMC2209 EN signal (enable low).
+
+    config TMC2209_RX_GPIO
+        int "TMC2209 RX GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 17
+        help
+            GPIO number (IOxx) to set the TMC2209 RX signal for the UART protocol.
+
+    config TMC2209_TX_GPIO
+        int "TMC2209 TX GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 16
+        help
+            GPIO number (IOxx) to set the TMC2209 TX signal for the UART protocol.
+
+    config TMC2209_DIAG_GPIO
+        int "TMC2209 DIAG GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 9
+        help
+            GPIO number (IOxx) to set the TMC2209 DIAG signal for debugging.
+
+    config I2C_SDA_GPIO
+        int "I2C SDA GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 22
+        help
+            GPIO number (IOxx) to set the I2C bus SDA signal.
+
+    config I2C_SCL_GPIO
+        int "I2C SCL GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 23
+        help
+            GPIO number (IOxx) to set the I2C bus SCL signal.
+
+    config SWM_GPIO
+        int "SWM GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 18
+        help
+            GPIO number (IOxx) to set the SWM input (SW- on the PCB).
+
+    config SWC_GPIO
+        int "SWC GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 20
+        help
+            GPIO number (IOxx) to set the SWC input (SWC on the PCB).
+
+    config SWP_GPIO
+        int "SWP GPIO pin number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 19
+        help
+            GPIO number (IOxx) to set the SWP input (SW+ on the PCB).
+
+endmenu
