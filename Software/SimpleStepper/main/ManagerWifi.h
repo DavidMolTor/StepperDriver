@@ -1,5 +1,5 @@
-#ifndef SIMPLE_STEPPER_WIFI_H
-#define SIMPLE_STEPPER_WIFI_H
+#ifndef MANAGER_WIFI_H
+#define MANAGER_WIFI_H
 
 #include <string>
 

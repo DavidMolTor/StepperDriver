@@ -1,37 +1,45 @@
 #include <TMC2209.h>
 
+// Instantiate TMC2209 driver
+TMC2209 stepper_driver;
+
+// Serial stream object declaration
 HardwareSerial& serial_stream = Serial0;
 
-// Instantiate TMC2209
-TMC2209 stepper_driver;
-const long SERIAL_BAUD_RATE = 115200;
-const uint8_t RUN_CURRENT_PERCENT = 100;
+// Stepper driver UART definitions
+#define UART_SERIAL_PORT  TMC2209::SERIAL_ADDRESS_0
+#define UART_BAUD_RATE    115200
+#define UART_RX_PIN       17
+#define UART_TX_PIN       16
 
 // Stepper driver pin definitions
-#define STP_PIN 1
-#define DIR_PIN 2
-#define EN_PIN 21
+#define STP_PIN   1
+#define DIR_PIN   2
+#define EN_PIN    21
+
+// TMC2209 current control definitions
+#define RMS_CURRENT_VALUE   200.0f
+#define EXT_RESISTOR_VALUE  0.1f
 
 // Value definitions for the NEMA17
-#define STEPS_PER_REV 200.0f
-#define MAX_RPM 600.0f
-#define RPM_STEPPING 50.0f
-#define MAX_USTEPS 8
+#define STEPS_PER_REV       200.0f
+#define MAX_RPM             600.0f
+#define RPM_STEPPING        60.0f
+#define MAX_USTEPS          8
 
 // GPIO pin definitions
 #define SWM_PIN 18
 #define SWC_PIN 20
 #define SWP_PIN 19
 
-static uint32_t step_delay_us = 0;
-static uint8_t current_microstep = 0;
+static uint32_t step_delay_us     = 0;
+static uint8_t current_microstep  = 0;
 
-static float current_speed_rpm = 0.0f;
-static float target_speed_rpm = 0.0f;
+static float current_speed_rpm    = 0.0f;
+static float target_speed_rpm     = 60.0f;
+static float accel_rpm_per_s      = 15.0f;
 
-static float accel_rpm_per_s = 10.0f;
-
-static long last_ramp_update;
+static long last_ramp_update      = 0;
 
 static uint32_t rpm_to_step_delay_us(float rpm, uint8_t microstep) {
   if (rpm <= 0.0f) {
@@ -153,41 +161,56 @@ static void gpioCallback() {
 }
 
 void setup() {
-  last_ramp_update = micros();
-
+  // Set the step pin configuration
   pinMode(STP_PIN, OUTPUT);
   digitalWrite(STP_PIN, LOW);
 
+  // Set the direction pin configuration
   pinMode(DIR_PIN, OUTPUT);
   digitalWrite(DIR_PIN, LOW);
 
+  // Set the enable pin configuration
   pinMode(EN_PIN, OUTPUT);
   digitalWrite(EN_PIN, LOW);
 
+  // Set the switch configurations
   pinMode(SWM_PIN, INPUT);
   pinMode(SWC_PIN, INPUT);
   pinMode(SWP_PIN, INPUT);
-
   attachInterrupt(digitalPinToInterrupt(SWM_PIN), gpioCallback, FALLING);
   attachInterrupt(digitalPinToInterrupt(SWC_PIN), gpioCallback, FALLING);
   attachInterrupt(digitalPinToInterrupt(SWP_PIN), gpioCallback, FALLING);
 
   delay(100);
 
-  Serial.begin(SERIAL_BAUD_RATE);
-
-  stepper_driver.setup(serial_stream, SERIAL_BAUD_RATE, TMC2209::SERIAL_ADDRESS_0, 17, 16);
-
+  // Initialize the serial port
+  Serial.begin(UART_BAUD_RATE);
   delay(100);
 
+  // Setup the TMC2209 stepper driver
+  stepper_driver.setup(serial_stream, UART_BAUD_RATE, UART_SERIAL_PORT, UART_RX_PIN, UART_TX_PIN);
+  delay(100);
+
+  // CHeck if the driver is setup and working
   if (stepper_driver.isSetupAndCommunicating()) {
-    stepper_driver.setMicrostepsPerStep(current_microstep);
-    stepper_driver.setRunCurrent(RUN_CURRENT_PERCENT);
-    stepper_driver.enableCoolStep();
+    // Enable the stepper driver
     stepper_driver.enable();
 
+    // Set the initial configuration
+    stepper_driver.useExternalSenseResistors();
+    stepper_driver.enableCoolStep();
+    stepper_driver.setMicrostepsPerStep(current_microstep);
+
+    // Set the current control configuration
+    stepper_driver.setRMSCurrent(RMS_CURRENT_VALUE, EXT_RESISTOR_VALUE);
+    stepper_driver.enableAutomaticCurrentScaling();
+    stepper_driver.enableAutomaticGradientAdaptation();
+
+    // Set the initial direction
     stepper_set_direction(true);
-    stepper_set_speed_rpm(60.0f);
+
+    // Set the initial update time
+    last_ramp_update = micros();
 
     Serial.println("Stepper driver running...");
   } else {
@@ -196,11 +219,6 @@ void setup() {
 }
 
 void loop() {
-  if (not stepper_driver.isSetupAndCommunicating()) {
-    Serial.println("Stepper driver not setup and communicating!");
-    delay(2000);
-    return;
-  }
-
+  // Execute the stepper control
   stepper_run();
 }

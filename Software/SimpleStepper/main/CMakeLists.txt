@@ -1,7 +1,8 @@
-idf_component_register(SRCS "simple_stepper_main.cpp" "simple_stepper_ota.cpp" "simple_stepper_wifi.cpp"
+idf_component_register(SRCS "StepperDriverMain.cpp" "ManagerOTA.cpp" "ManagerWifi.cpp"
                        INCLUDE_DIRS "."
                        REQUIRES
                         esp_driver_gpio
+                        esp_driver_uart
                         esp_driver_usb_serial_jtag
                         esp_wifi
                         esp_event

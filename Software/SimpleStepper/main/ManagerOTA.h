@@ -1,5 +1,5 @@
-#ifndef SIMPLE_STEPPER_OTA_H
-#define SIMPLE_STEPPER_OTA_H
+#ifndef MANAGER_OTA_H
+#define MANAGER_OTA_H
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/event_groups.h"

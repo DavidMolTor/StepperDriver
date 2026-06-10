@@ -10,20 +10,22 @@
 
 #include "sdkconfig.h"
 
-#include "simple_stepper_wifi.h"
-#include "simple_stepper_ota.h"
+#include "ManagerWifi.h"
+#include "ManagerOTA.h"
+
+#include "TMC2209.h"
 
 // User accessible LED GPIO definition
 #define USER_LED_GPIO (gpio_num_t)CONFIG_USER_LED_GPIO
 
 // TMC2209 driver pin definitions
-#define TMC2209_VREF_GPIO    CONFIG_TMC2209_VREF_GPIO
-#define TMC2209_STEP_GPIO    CONFIG_TMC2209_STEP_GPIO
-#define TMC2209_DIR_GPIO     CONFIG_TMC2209_DIR_GPIO
-#define TMC2209_EN_GPIO      CONFIG_TMC2209_EN_GPIO
-#define TMC2209_RX_GPIO      CONFIG_TMC2209_RX_GPIO
-#define TMC2209_TX_GPIO      CONFIG_TMC2209_TX_GPIO
-#define TMC2209_DIAG_GPIO    CONFIG_TMC2209_DIAG_GPIO
+#define TMC2209_VREF_GPIO    (gpio_num_t)CONFIG_TMC2209_VREF_GPIO
+#define TMC2209_STEP_GPIO    (gpio_num_t)CONFIG_TMC2209_STEP_GPIO
+#define TMC2209_DIR_GPIO     (gpio_num_t)CONFIG_TMC2209_DIR_GPIO
+#define TMC2209_EN_GPIO      (gpio_num_t)CONFIG_TMC2209_EN_GPIO
+#define TMC2209_RX_GPIO      (gpio_num_t)CONFIG_TMC2209_RX_GPIO
+#define TMC2209_TX_GPIO      (gpio_num_t)CONFIG_TMC2209_TX_GPIO
+#define TMC2209_DIAG_GPIO    (gpio_num_t)CONFIG_TMC2209_DIAG_GPIO
 
 // I2C bus pin definitions
 #define I2C_SDA_GPIO CONFIG_I2C_SDA_GPIO
@@ -96,6 +98,10 @@ static void run_app(ManagerWifi &wifi)
     if (credentials.valid() && !wifi.connect(credentials)) {
         printf("Unable to connect to WiFi, running application...\n");
     }
+
+    TMC2209 tmc2209;
+    tmc2209.setup(UART_NUM_0, TMC2209_TX_GPIO, TMC2209_RX_GPIO);
+    tmc2209.setGPIO(TMC2209_EN_GPIO, TMC2209_STEP_GPIO, TMC2209_DIR_GPIO);
 
     while (true) {
         printf("Main app running...\n");
