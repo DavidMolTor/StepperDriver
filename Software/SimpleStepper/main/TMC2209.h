@@ -198,8 +198,6 @@ private:
     int serialAvailable();
     size_t serialWrite(uint8_t value);
     int serialRead();
-    void serialFlush();
-    bool serialWaitTxDone(uint32_t timeout);
 
     // Serial Settings constants
     const static uint8_t BYTE_MAX_VALUE                 = 0xFF;

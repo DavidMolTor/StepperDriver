@@ -423,7 +423,7 @@ int TMC2209::serialAvailable()
     size_t length = 0;
     if (uart_get_buffered_data_len(uart_port, &length) == ESP_OK)
     {
-        return static_cast<int>(length);
+        return length;
     }
 
     return 0;
@@ -451,16 +451,6 @@ int TMC2209::serialRead()
     }
 
     return -1;
-}
-
-void TMC2209::serialFlush()
-{
-    uart_flush_input(uart_port);
-}
-
-bool TMC2209::serialWaitTxDone(uint32_t timeout)
-{
-    return uart_wait_tx_done(uart_port, pdMS_TO_TICKS(timeout)) == ESP_OK;
 }
 
 void TMC2209::setSerialMode(uint8_t address)
@@ -582,10 +572,10 @@ void TMC2209::sendDatagramBidirectional(Datagram &datagram, uint8_t datagram_siz
 {
     uint8_t byte;
 
-    serialFlush();
+    uart_wait_tx_done(uart_port, 100);
 
     while (serialAvailable() > 0) {
-        serialRead();
+        byte = serialRead();
     }
 
     for (uint8_t i = 0; i < datagram_size; ++i) {
@@ -593,24 +583,26 @@ void TMC2209::sendDatagramBidirectional(Datagram &datagram, uint8_t datagram_siz
         serialWrite(byte);
     }
 
-    if (!serialWaitTxDone(10)) {
-        return;
-    }
+    uart_wait_tx_done(uart_port, 100);
 
     uint32_t echo_delay = 0;
-    while ((serialAvailable() < datagram_size) &&
-           (echo_delay < ECHO_DELAY_MAX_MICROSECONDS)) {
+    while ((serialAvailable() < datagram_size) && (echo_delay < ECHO_DELAY_MAX_MICROSECONDS)) {
         ets_delay_us(ECHO_DELAY_INC_MICROSECONDS);
+
         echo_delay += ECHO_DELAY_INC_MICROSECONDS;
     }
 
-    for (uint8_t i = 0; i < datagram_size && serialAvailable() > 0; ++i) {
-        serialRead();
+    if (echo_delay >= ECHO_DELAY_MAX_MICROSECONDS)
+    {
+        return;
+    }
+
+    for (uint8_t i = 0; i < datagram_size; ++i) {
+        byte = serialRead();
     }
 }
 
-void TMC2209::write(uint8_t register_address,
-                    uint32_t data)
+void TMC2209::write(uint8_t register_address, uint32_t data)
 {
     ReplyDatagram write_datagram;
     write_datagram.bytes            = 0;
@@ -639,8 +631,7 @@ uint32_t TMC2209::read(uint8_t register_address)
         sendDatagramBidirectional(read_request_datagram, READ_REQUEST_DATAGRAM_SIZE);
 
         uint32_t reply_delay = 0;
-        while ((serialAvailable() < REPLY_DATAGRAM_SIZE) and
-               (reply_delay < REPLY_DELAY_MAX_MICROSECONDS))
+        while ((serialAvailable() < REPLY_DATAGRAM_SIZE) && (reply_delay < REPLY_DELAY_MAX_MICROSECONDS))
         {
             ets_delay_us(REPLY_DELAY_INC_MICROSECONDS);
 

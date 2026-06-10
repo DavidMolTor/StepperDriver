@@ -7,7 +7,7 @@
   "idf.currentSetup": "C:\\esp\\v6.0.1\\esp-idf",
   "idf.customExtraVars": {
     "IDF_TARGET": "esp32c6",
-    "OPENOCD_USB_ADAPTER_LOCATION": "2-4.1"
+    "OPENOCD_USB_ADAPTER_LOCATION": "1-4.1"
   },
   "clangd.path": "C:\\Espressif\\tools\\esp-clang\\esp-20.1.1_20250829\\esp-clang\\bin\\clangd.exe",
   "clangd.arguments": [

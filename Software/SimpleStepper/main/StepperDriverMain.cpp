@@ -110,7 +110,7 @@ static void run_app(ManagerWifi &wifi)
     while (true) {
         printf("Driver status: %d\n", stepper_driver.getConnected());
         printf("Main app running...\n");
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        vTaskDelay(pdMS_TO_TICKS(10000));
     }
 }
 

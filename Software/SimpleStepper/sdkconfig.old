@@ -721,7 +721,7 @@ CONFIG_IDF_TARGET_ARCH="riscv"
 # default:
 CONFIG_IDF_TARGET="esp32c6"
 # default:
-CONFIG_IDF_INIT_VERSION="$IDF_INIT_VERSION"
+CONFIG_IDF_INIT_VERSION="6.0.1"
 # default:
 CONFIG_IDF_TARGET_ESP32C6=y
 # default:
@@ -999,24 +999,16 @@ CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
 # CONFIG_ESPTOOLPY_FLASHFREQ_20M is not set
 # default:
 CONFIG_ESPTOOLPY_FLASHFREQ="80m"
-# default:
 # CONFIG_ESPTOOLPY_FLASHSIZE_1MB is not set
-# default:
-CONFIG_ESPTOOLPY_FLASHSIZE_2MB=y
-# default:
-# CONFIG_ESPTOOLPY_FLASHSIZE_4MB is not set
-# default:
+# CONFIG_ESPTOOLPY_FLASHSIZE_2MB is not set
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
 # CONFIG_ESPTOOLPY_FLASHSIZE_8MB is not set
-# default:
 # CONFIG_ESPTOOLPY_FLASHSIZE_16MB is not set
-# default:
 # CONFIG_ESPTOOLPY_FLASHSIZE_32MB is not set
-# default:
 # CONFIG_ESPTOOLPY_FLASHSIZE_64MB is not set
-# default:
 # CONFIG_ESPTOOLPY_FLASHSIZE_128MB is not set
 # default:
-CONFIG_ESPTOOLPY_FLASHSIZE="2MB"
+CONFIG_ESPTOOLPY_FLASHSIZE="4MB"
 # default:
 # CONFIG_ESPTOOLPY_HEADER_FLASHSIZE_UPDATE is not set
 # default:
@@ -1156,6 +1148,18 @@ CONFIG_COMPILER_CXX_GLIBCXX_CONSTEXPR_NO_CHANGE=y
 
 #
 # Component config
+#
+
+#
+# !!! MINIMAL_BUILD is enabled !!!
+#
+
+#
+# Only common components and those transitively required by the main component are listed
+#
+
+#
+# If a component configuration is missing, please add it to the main component's requirements
 #
 
 #
@@ -2849,11 +2853,11 @@ CONFIG_PTHREAD_TASK_NAME_DEFAULT="pthread"
 # MMU Config
 #
 # default:
-CONFIG_MMU_PAGE_SIZE_32KB=y
+CONFIG_MMU_PAGE_SIZE_64KB=y
 # default:
-CONFIG_MMU_PAGE_MODE="32KB"
+CONFIG_MMU_PAGE_MODE="64KB"
 # default:
-CONFIG_MMU_PAGE_SIZE=0x8000
+CONFIG_MMU_PAGE_SIZE=0x10000
 # end of MMU Config
 
 #
