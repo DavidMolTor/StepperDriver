@@ -27,6 +27,9 @@
 #define TMC2209_TX_GPIO      (gpio_num_t)CONFIG_TMC2209_TX_GPIO
 #define TMC2209_DIAG_GPIO    (gpio_num_t)CONFIG_TMC2209_DIAG_GPIO
 
+// TMC2209 serial address definition
+#define TMC2209_SERIAL_ADDRESS 0
+
 // I2C bus pin definitions
 #define I2C_SDA_GPIO CONFIG_I2C_SDA_GPIO
 #define I2C_SCL_GPIO CONFIG_I2C_SCL_GPIO
@@ -35,6 +38,10 @@
 #define SWM_GPIO CONFIG_SWM_GPIO
 #define SWC_GPIO CONFIG_SWC_GPIO
 #define SWP_GPIO CONFIG_SWP_GPIO
+
+// NEMA17 specification definitions
+#define STEPS_PER_REV   200
+#define CURRENT_RMS_MA  1000
 
 static void init_console()
 {
@@ -92,18 +99,16 @@ static void run_maintenance(ManagerWifi &wifi, ManagerOTA &ota)
 
 static void run_app(ManagerWifi &wifi)
 {
-    ManagerWifi::Credentials credentials = wifi.loadCredentials();
+    TMC2209 stepper_driver;
 
-    // Connect to the given wifi network
-    if (credentials.valid() && !wifi.connect(credentials)) {
-        printf("Unable to connect to WiFi, running application...\n");
-    }
+    stepper_driver.setGPIO(TMC2209_EN_GPIO, TMC2209_STEP_GPIO, TMC2209_DIR_GPIO);
+    vTaskDelay(pdMS_TO_TICKS(100));
 
-    TMC2209 tmc2209;
-    tmc2209.setup(UART_NUM_0, TMC2209_TX_GPIO, TMC2209_RX_GPIO);
-    tmc2209.setGPIO(TMC2209_EN_GPIO, TMC2209_STEP_GPIO, TMC2209_DIR_GPIO);
-
+    stepper_driver.setup(UART_NUM_0, TMC2209_TX_GPIO, TMC2209_RX_GPIO, TMC2209_SERIAL_ADDRESS);
+    vTaskDelay(pdMS_TO_TICKS(100));
+    
     while (true) {
+        printf("Driver status: %d\n", stepper_driver.getConnected());
         printf("Main app running...\n");
         vTaskDelay(pdMS_TO_TICKS(1000));
     }

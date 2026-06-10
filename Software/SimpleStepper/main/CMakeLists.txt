@@ -1,4 +1,4 @@
-idf_component_register(SRCS "StepperDriverMain.cpp" "ManagerOTA.cpp" "ManagerWifi.cpp"
+idf_component_register(SRCS "StepperDriverMain.cpp" "ManagerOTA.cpp" "ManagerWifi.cpp" "TMC2209.cpp"
                        INCLUDE_DIRS "."
                        REQUIRES
                         esp_driver_gpio
