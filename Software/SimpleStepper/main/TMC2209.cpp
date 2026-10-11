@@ -44,23 +44,54 @@ void TMC2209::setGPIO(gpio_num_t enable, gpio_num_t step, gpio_num_t dir)
         .intr_type      = GPIO_INTR_DISABLE
     };
 
-    // Configure each button
+    // Configure each GPIO
     io_conf.pin_bit_mask = 1ULL << enable;
-    ESP_ERROR_CHECK(gpio_config(&io_conf));
-    io_conf.pin_bit_mask = 1ULL << step;
     ESP_ERROR_CHECK(gpio_config(&io_conf));
     io_conf.pin_bit_mask = 1ULL << dir;
     ESP_ERROR_CHECK(gpio_config(&io_conf));
 
     // Set default pin levels
     gpio_set_level(pin_enable, 1);
-    gpio_set_level(pin_step, 0);
     gpio_set_level(pin_dir, 0);
+
+    // Configure the step timer
+    ledc_timer_config_t ledc_timer = {};
+    ledc_timer.speed_mode       = LEDC_LOW_SPEED_MODE;
+    ledc_timer.duty_resolution  = DUTY_RES;
+    ledc_timer.timer_num        = LEDC_TIMER_0;
+    ledc_timer.clk_cfg          = LEDC_AUTO_CLK;
+    ledc_timer.freq_hz          = steps_per_rev;
+    ESP_ERROR_CHECK(ledc_timer_config(&ledc_timer));
+
+    // Configure the step channel
+    ledc_channel_config_t ledc_channel = {};
+    ledc_channel.gpio_num       = step;
+    ledc_channel.speed_mode     = LEDC_LOW_SPEED_MODE;
+    ledc_channel.channel        = LEDC_CHANNEL_0;
+    ledc_channel.timer_sel      = LEDC_TIMER_0;
+    ledc_channel.duty           = 0;
+    ledc_channel.hpoint         = 0;
+    ESP_ERROR_CHECK(ledc_channel_config(&ledc_channel));
 }
 
 void TMC2209::setEnabled(bool status)
 {
     gpio_set_level(pin_enable, status ? 0 : 1);
+}
+
+void TMC2209::setStepPWM(bool status, float freq)
+{
+    // Set the duty cycle if enabled
+    ESP_ERROR_CHECK(ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, status ? DUTY_HALF : 0));
+
+    // Update the duty cycle
+    ESP_ERROR_CHECK(ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0));
+
+    // Set the PWM frequency
+    if (freq >= 1) {
+        uint32_t steps = getMicrostepsPerStep() * steps_per_rev * freq;
+        ESP_ERROR_CHECK(ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0, steps));
+    }
 }
 
 void TMC2209::setStepsPerRev(uint32_t steps)
@@ -80,6 +111,29 @@ void TMC2209::setRunCurrent(uint8_t percent)
 {
     driver_current.irun = (CURRENT_SETTING_MAX - CURRENT_SETTING_MIN) * (percent / 100.0f);
     writeDriverCurrent();
+}
+
+void TMC2209::setCurrentRMS(float current, float rsense)
+{
+    // Calculate the current scaling value
+    uint8_t CS = 32.0 * std::sqrt(2) * current / 1000.0 * (rsense + 0.02) / 0.325 - 1;
+
+    // Check for low current scaling
+    if (CS < 16) {
+        setVSense(true);
+        CS = 32.0 * std::sqrt(2) * current / 1000.0 * (rsense + 0.02) / 0.180 - 1;
+    } else {
+        setVSense(false);
+    }
+
+    // Check for high current scaling
+    if (CS > 31) {
+        CS = 31;
+    }
+
+    driver_current.irun     = CS;
+    driver_current.ihold    = CS * 0.5f;
+    writeDriverCurrent(); 
 }
 
 void TMC2209::setHoldCurrent(uint8_t percent)
@@ -162,7 +216,7 @@ void TMC2209::setReplyDelay(uint8_t delay)
 
 void TMC2209::moveVelocity(int32_t speed_hz)
 {
-    uint32_t microsteps = 2^(MAX_MICROSTEP_CONFIG - chopper_config.mres);
+    uint32_t microsteps = 2 ^ (MAX_MICROSTEP_CONFIG - chopper_config.mres);
     int32_t microsteps_second = speed_hz * steps_per_rev * microsteps * TMC2209_DEFAULT_CLOCK / (1 << 24);
     write(ADDRESS_VACTUAL, microsteps_second);
 }

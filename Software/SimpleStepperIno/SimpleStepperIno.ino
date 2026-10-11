@@ -18,7 +18,7 @@ HardwareSerial& serial_stream = Serial0;
 #define EN_PIN    21
 
 // TMC2209 current control definitions
-#define RMS_CURRENT_VALUE   200.0f
+#define RMS_CURRENT_VALUE   1000.0f
 #define EXT_RESISTOR_VALUE  0.1f
 
 // Value definitions for the NEMA17
@@ -50,7 +50,7 @@ static uint32_t rpm_to_step_delay_us(float rpm, uint8_t microstep) {
     rpm = MAX_RPM;
   }
 
-  float steps_per_rev = STEPS_PER_REV * (float)(2 ^ microstep);
+  float steps_per_rev = STEPS_PER_REV * (float)(1u << microstep);
   float steps_per_sec = (rpm * steps_per_rev) / 60.0f;
 
   if (steps_per_sec < 1.0f) {
@@ -138,10 +138,12 @@ static void gpioCallback() {
   }
 
   if (digitalRead(SWC_PIN) == LOW) {
-    current_microstep++;
-
-    if (current_microstep > MAX_USTEPS)
-      current_microstep = 0;
+    if (target_speed_rpm != 0) {
+      target_speed_rpm  = 0;
+      current_speed_rpm = 0;
+    } else {
+      target_speed_rpm = RPM_STEPPING;
+    }
   }
 
   if (digitalRead(SWP_PIN) == LOW) {
@@ -191,7 +193,7 @@ void setup() {
   stepper_driver.setup(serial_stream, UART_BAUD_RATE, UART_SERIAL_PORT, UART_RX_PIN, UART_TX_PIN);
   delay(100);
 
-  // CHeck if the driver is setup and working
+  // Check if the driver is setup and working
   if (stepper_driver.isSetupAndCommunicating()) {
     // Enable the stepper driver
     stepper_driver.enable();

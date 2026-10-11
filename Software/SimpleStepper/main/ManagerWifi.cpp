@@ -157,7 +157,7 @@ ManagerWifi::Credentials ManagerWifi::serialProvisioning()
     std::string save = readLine("Save inside NVS? [y/N]: ", true);
     if (!save.empty() && (save[0] == 'y' || save[0] == 'Y')) {
         saveCredentials(credentials);
-        printf("Credentials stored\n");
+        printf("\nCredentials stored\n");
     }
 
     return credentials;

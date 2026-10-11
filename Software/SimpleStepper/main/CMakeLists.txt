@@ -2,6 +2,7 @@ idf_component_register(SRCS "StepperDriverMain.cpp" "ManagerOTA.cpp" "ManagerWif
                        INCLUDE_DIRS "."
                        REQUIRES
                         esp_driver_gpio
+                        esp_driver_ledc
                         esp_driver_uart
                         esp_driver_usb_serial_jtag
                         esp_wifi

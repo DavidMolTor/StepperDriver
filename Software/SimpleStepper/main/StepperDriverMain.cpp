@@ -5,6 +5,7 @@
 #include "freertos/task.h"
 
 #include "driver/gpio.h"
+#include "driver/ledc.h"
 #include "driver/usb_serial_jtag.h"
 #include "driver/usb_serial_jtag_vfs.h"
 
@@ -42,6 +43,12 @@
 // NEMA17 specification definitions
 #define STEPS_PER_REV   200
 #define CURRENT_RMS_MA  1000
+#define SENSE_RESISTOR  0.1f
+
+// Speed control definitions
+#define MAX_SPEED_HZ        10.0f
+#define HZ_STEPPING         1.0f
+
 
 static void init_console()
 {
@@ -61,6 +68,22 @@ static void init_console()
     setvbuf(stderr, NULL, _IONBF, 0);
 }
 
+static void IRAM_ATTR gpioCallback(void *arg) {
+    //Get the GPIO number
+    uint32_t gpio_num = (uint32_t)arg;
+    switch (gpio_num) {
+        case SWM_GPIO:
+
+            break;
+        case SWC_GPIO:
+
+            break;
+        case SWP_GPIO:
+        
+            break;
+    }
+}
+
 static void init_gpio()
 {
     // Configure the user LED
@@ -70,20 +93,33 @@ static void init_gpio()
 
     // Default button configuration
     gpio_config_t io_conf = {
-        .pin_bit_mask   = 1ULL,
+        .pin_bit_mask   = (1ULL << SWM_GPIO) | (1ULL << SWC_GPIO) | (1ULL << SWP_GPIO),
         .mode           = GPIO_MODE_INPUT,
         .pull_up_en     = GPIO_PULLUP_DISABLE,
         .pull_down_en   = GPIO_PULLDOWN_DISABLE,
-        .intr_type      = GPIO_INTR_DISABLE
+        .intr_type      = GPIO_INTR_POSEDGE 
     };
 
-    // Configure each button
-    io_conf.pin_bit_mask = 1ULL << CONFIG_SWM_GPIO;
+    // Configure all buttons
     ESP_ERROR_CHECK(gpio_config(&io_conf));
-    io_conf.pin_bit_mask = 1ULL << CONFIG_SWC_GPIO;
-    ESP_ERROR_CHECK(gpio_config(&io_conf));
-    io_conf.pin_bit_mask = 1ULL << CONFIG_SWP_GPIO;
-    ESP_ERROR_CHECK(gpio_config(&io_conf));    
+
+    // Set the ISR service
+    gpio_install_isr_service(0);
+
+    // Add all GPIO callbacks
+    gpio_isr_handler_add((gpio_num_t)SWM_GPIO, gpioCallback, (void*)SWM_GPIO);
+    gpio_isr_handler_add((gpio_num_t)SWC_GPIO, gpioCallback, (void*)SWC_GPIO);
+    gpio_isr_handler_add((gpio_num_t)SWP_GPIO, gpioCallback, (void*)SWP_GPIO);
+}
+
+static void init_timers()
+{
+
+}
+
+void stepper_run()
+{
+    vTaskDelay(pdMS_TO_TICKS(5000));
 }
 
 static void run_maintenance(ManagerWifi &wifi, ManagerOTA &ota)
@@ -93,24 +129,47 @@ static void run_maintenance(ManagerWifi &wifi, ManagerOTA &ota)
 
     while (true) {
         printf("OTA web server active, waiting for firmware...\n");
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        vTaskDelay(pdMS_TO_TICKS(5000));
     }
 }
 
 static void run_app(ManagerWifi &wifi)
 {
     TMC2209 stepper_driver;
-
+    stepper_driver.setStepsPerRev(STEPS_PER_REV);
+    
     stepper_driver.setGPIO(TMC2209_EN_GPIO, TMC2209_STEP_GPIO, TMC2209_DIR_GPIO);
     vTaskDelay(pdMS_TO_TICKS(100));
 
     stepper_driver.setup(UART_NUM_0, TMC2209_TX_GPIO, TMC2209_RX_GPIO, TMC2209_SERIAL_ADDRESS);
     vTaskDelay(pdMS_TO_TICKS(100));
+
+    // Check if the driver is setup and working
+    TMC2209::Settings settings = stepper_driver.getSettings();
+    if (settings.is_setup && settings.is_communicating) {
+        // Enable the stepper driver
+        stepper_driver.setEnabled(true);
+
+        // Set the initial configuration
+        stepper_driver.setExternalSenseResistors(true);
+        stepper_driver.setStealthChop(false);
+        stepper_driver.setMicrosteps(0);
+
+        // Set the current control configuration
+        stepper_driver.setCurrentRMS(CURRENT_RMS_MA, SENSE_RESISTOR);
+        stepper_driver.setAutomaticCurrentScaling(true);
+        stepper_driver.setAutomaticGradientAdaptation(true);
+
+        // Set the initial direction
+        stepper_driver.setInverseDirection(false);
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+
+    stepper_driver.setStepPWM(true, 1.0f);
     
     while (true) {
-        printf("Driver status: %d\n", stepper_driver.getConnected());
         printf("Main app running...\n");
-        vTaskDelay(pdMS_TO_TICKS(10000));
+        stepper_run();
     }
 }
 
@@ -118,6 +177,7 @@ extern "C" void app_main(void)
 {
     init_console();
     init_gpio();
+    init_timers();
 
     // Manager definitions
     ManagerWifi managerWifi;

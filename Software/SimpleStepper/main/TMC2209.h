@@ -6,10 +6,13 @@
 
 #include <rom/ets_sys.h>
 
+#include <cmath>
+
 #include "esp_log.h"
 #include "esp_err.h"
 #include "esp_event.h"
 
+#include "driver/ledc.h"
 #include "driver/uart.h"
 #include "driver/gpio.h"
 
@@ -17,6 +20,10 @@
 #define UART_BUFFER_SIZE    1024
 #define UART_QUEUE_SIZE     10
 #define UART_BAUD_RATE      115200
+
+// PWM resolution definitions
+#define DUTY_RES    LEDC_TIMER_17_BIT
+#define DUTY_HALF   (1U << (DUTY_RES - 1))
 
 // TMC2209 default internal clock definition
 #define TMC2209_DEFAULT_CLOCK 12000000
@@ -63,10 +70,13 @@ public:
 
     void setEnabled(bool status);
 
+    void setStepPWM(bool status, float freq);
+
     void setStepsPerRev(uint32_t steps);
     void setMicrosteps(uint8_t exponent);
 
     void setRunCurrent(uint8_t percent);
+    void setCurrentRMS(float current,float rsense);
     void setHoldCurrent(uint8_t percent);
     void setHoldDelay(uint8_t percent);
 
