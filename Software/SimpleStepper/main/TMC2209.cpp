@@ -1,5 +1,7 @@
 #include "TMC2209.h"
 
+#include <cstdio>
+
 
 TMC2209::TMC2209()
 {
@@ -88,10 +90,9 @@ void TMC2209::setStepPWM(bool status, float freq)
     ESP_ERROR_CHECK(ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0));
 
     // Set the PWM frequency
-    if (freq >= 1) {
-        uint32_t steps = getMicrostepsPerStep() * steps_per_rev * freq;
+    uint32_t steps = getMicrostepsPerStep() * steps_per_rev * freq;
+    if (steps >= 40)
         ESP_ERROR_CHECK(ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0, steps));
-    }
 }
 
 void TMC2209::setStepsPerRev(uint32_t steps)
@@ -147,6 +148,16 @@ void TMC2209::setHoldDelay(uint8_t percent)
 
     driver_current.iholddelay = (HOLD_DELAY_MAX - HOLD_DELAY_MIN) * (percent / 100.0f);
     writeDriverCurrent();
+}
+
+void TMC2209::setChopperConfig(uint8_t toff, uint8_t tbl, uint8_t hstart, uint8_t hend)
+{
+    chopper_config.toff   = toff;
+    chopper_config.tbl    = tbl;
+    chopper_config.hstart = hstart;
+    chopper_config.hend   = hend;
+
+    writeChopperConfig();
 }
 
 void TMC2209::setDoubleEdge(bool status)
@@ -318,7 +329,7 @@ DriverConnected TMC2209::getConnected()
 
 uint16_t TMC2209::getMicrostepsPerStep()
 {
-    return 2^(MAX_MICROSTEP_CONFIG - chopper_config.mres);
+    return 1 << (MAX_MICROSTEP_CONFIG - chopper_config.mres);
 }
 
 TMC2209::Settings TMC2209::getSettings()
@@ -458,6 +469,51 @@ uint8_t TMC2209::getPwmGradientAuto()
 uint16_t TMC2209::getMicrostepCounter()
 {
     return read(ADDRESS_MSCNT);
+}
+
+void TMC2209::printRegisters()
+{
+    struct RegisterInfo
+    {
+        const char *name;
+        uint8_t address;
+    };
+
+    // Get all registers available through UART
+    const RegisterInfo registers[] = {
+        {"GCONF",           ADDRESS_GCONF},
+        {"GSTAT",           ADDRESS_GSTAT},
+        {"IFCNT",           ADDRESS_IFCNT},
+        {"OTP_READ",        0x05},
+        {"IOIN",            ADDRESS_IOIN},
+        {"FACTORY_CONF",    0x07},
+        {"IHOLD_IRUN",      ADDRESS_IHOLD_IRUN},
+        {"TSTEP",           ADDRESS_TSTEP},
+        {"VACTUAL",         ADDRESS_VACTUAL},
+        {"SG_RESULT",       ADDRESS_SG_RESULT},
+        {"MSCNT",           ADDRESS_MSCNT},
+        {"MSCURACT",        ADDRESS_MSCURACT},
+        {"CHOPCONF",        ADDRESS_CHOPCONF},
+        {"DRV_STATUS",      ADDRESS_DRV_STATUS},
+        {"PWMCONF",         ADDRESS_PWMCONF},
+        {"PWM_SCALE",       ADDRESS_PWM_SCALE},
+        {"PWM_AUTO",        ADDRESS_PWM_AUTO},
+    };
+
+    printf("\nTMC2209 readable registers (MSB -> LSB):\n");
+    for (const RegisterInfo &reg : registers)
+    {
+        const uint32_t value = read(reg.address);
+        char binary[33];
+
+        for (uint8_t bit = 0; bit < 32; ++bit)
+        {
+            binary[bit] = (value & (1UL << (31 - bit))) ? '1' : '0';
+        }
+        binary[32] = '\0';
+
+        printf("%-12s (0x%02X): 0b%s\n", reg.name, reg.address, binary);
+    }
 }
 
 void TMC2209::initialize(uint8_t address)

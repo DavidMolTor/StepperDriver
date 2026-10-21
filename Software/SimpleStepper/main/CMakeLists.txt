@@ -10,6 +10,7 @@ idf_component_register(SRCS "StepperDriverMain.cpp" "ManagerOTA.cpp" "ManagerWif
                         esp_netif
                         esp_http_server
                         app_update
+                        esp_timer
                         bootloader_support
                         nvs_flash
                         mdns

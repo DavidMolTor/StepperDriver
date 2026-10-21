@@ -22,7 +22,7 @@
 #define UART_BAUD_RATE      115200
 
 // PWM resolution definitions
-#define DUTY_RES    LEDC_TIMER_17_BIT
+#define DUTY_RES    LEDC_TIMER_12_BIT
 #define DUTY_HALF   (1U << (DUTY_RES - 1))
 
 // TMC2209 default internal clock definition
@@ -34,6 +34,12 @@ enum StandstillMode
     FREEWHEELING    = 1,
     STRONG_BRAKING  = 2,
     BRAKING         = 3
+};
+
+enum class ChopperMode
+{
+    SpreadCycle,
+    StealthChop
 };
 
 enum CurrentIncrement
@@ -79,6 +85,8 @@ public:
     void setCurrentRMS(float current,float rsense);
     void setHoldCurrent(uint8_t percent);
     void setHoldDelay(uint8_t percent);
+
+    void setChopperConfig(uint8_t toff, uint8_t tbl, uint8_t hstart, uint8_t hend);
 
     void setDoubleEdge(bool status);
     void setVSense(bool status);
@@ -189,6 +197,8 @@ public:
     uint8_t getPwmGradientAuto();
 
     uint16_t getMicrostepCounter();
+
+    void printRegisters();
 
 private:
     int buffer_size;
